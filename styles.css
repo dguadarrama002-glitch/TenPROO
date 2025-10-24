@@ -1,0 +1,247 @@
+:root {
+  /* ============================================================== */
+  /* PALETA HSL de TenPRO */
+  /* ============================================================== */
+  --color-principal-limon: hsl(0, 0%, 0%);    /* #AEFF05 - Verde Limón */
+  --color-fondo-palido: hsl(83, 100%, 50%);       /* #E0FFC3 - Menta Pálido */
+  --color-acento-turquesa: hsl(169, 75%, 52%);    /* #25E4BC - Turquesa Brillante */
+  --color-secundario-oscuro: hsl(169, 36%, 39%);  /* #3F8978 - Verde Azulado Oscuro */
+  --color-texto-oscuro: hsl(9, 10%, 29%);         /* #514442 - Marrón Grisáceo */
+
+  /* 🔥 SOBRESCRITURA TOTAL DE VARIABLES DE BOOTSTRAP */
+  --bs-primary: var(--color-acento-turquesa);
+  --bs-secondary: var(--color-secundario-oscuro);
+  --bs-success: var(--color-principal-limon);
+  --bs-info: var(--color-acento-turquesa);
+  --bs-warning: var(--color-principal-limon);
+  --bs-danger: var(--color-texto-oscuro);
+  --bs-dark: var(--color-texto-oscuro);
+  --bs-light: var(--color-fondo-palido);
+  
+  /* ================== PALETA GLOBAL ================== */
+
+/* Fondo y color base del cuerpo */
+body {
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+/* Navbar */
+.navbar {
+  background-color: var(--bs-primary) !important;
+}
+.navbar .nav-link,
+.navbar-brand {
+  color: rgb(255, 255, 255) !important;
+}
+.navbar .nav-link:hover {
+  color: var(--bs-body-bg) !important;
+}
+
+/* Botones */
+.btn-primary {
+  background-color: var(--bs-primary);
+  border-color: var(--bs-primary);
+}
+.btn-primary:hover {
+  background-color: hsl(169, 75%, 42%);
+}
+
+.btn-success {
+  background-color: var(--bs-success);
+  border-color: var(--bs-success);
+}
+.btn-success:hover {
+  background-color: hsl(83, 100%, 30%);
+}
+
+/* Botón del carrito */
+.btn-outline-success {
+  border-color: var(--bs-success);
+  color: var(--bs-success);
+}
+.btn-outline-success:hover {
+  background-color: var(--bs-success);
+  color: white;
+}
+
+/* Cards */
+.card {
+  border: none;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+.card-title {
+  color: var(--bs-primary);
+}
+.card-text {
+  color: var(--bs-body-color);
+}
+
+/* Modal del carrito */
+.modal-content {
+  border-radius: 1rem;
+}
+.modal-header {
+  background-color: var(--bs-primary);
+  color: white;
+}
+.modal-footer {
+  background-color: var(--bs-body-bg);
+}
+
+/* Footer */
+footer {
+  background-color: var(--bs-danger);
+  color: white;
+}
+
+  /* Colores de fondo y texto base de la página */
+  --bs-body-bg: var(--color-fondo-palido);
+  --bs-body-color: var(--color-texto-oscuro);
+}
+
+* { 
+  box-sizing: border-box; 
+  transition: background-color .2s ease, color .2s ease, border-color .2s ease;
+}
+
+body {
+  margin: 16px; 
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background-color: var(--bs-body-bg); 
+  color: var(--bs-body-color);
+}
+
+/* ============================================================== */
+/* Sustitución de estilos manuales (donde no aplica Bootstrap) */
+/* ============================================================== */
+
+/* h1 (antes 'blue') */
+h1 {
+  color: var(--bs-primary);
+  border-bottom: 4px solid currentColor; 
+}
+
+/* h2 (antes rgb(40, 85, 197)) */
+h2 { 
+  color: var(--bs-secondary);
+}
+
+/* p, li, th, td (colores corregidos) */
+p {
+  font-family: Arial, Helvetica, sans-serif;
+  font-size: 18px;
+  color: var(--bs-body-color); 
+}
+li { 
+  color: var(--color-texto-oscuro);
+}
+th { 
+  color: var(--color-principal-limon);
+}
+td { 
+  color: var(--bs-body-color);
+}
+
+/* a (links) */
+a {
+  color: var(--bs-primary);
+  border-bottom: 2px solid currentColor;
+  text-decoration: none;
+}
+a:hover { 
+  color: var(--color-secundario-oscuro); 
+}
+
+/* Fila de totales de la tabla */
+.fila-total-tabla {
+    font-weight: bold;
+    background-color: var(--color-secundario-oscuro) !important;
+    color: var(--color-fondo-palido);
+}
+
+/* Botón flotante WhatsApp (Funciona porque tiene estilos muy específicos) */
+.whatsapp-float {
+  position: fixed;
+  width: 60px;
+  height: 60px;
+  bottom: 20px;
+  right: 20px;
+  background-color: var(--color-acento-turquesa);
+  color: #fefefe; 
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 30px;
+  box-shadow: 2px 2px 8px rgba(0,0,0,0.25); 
+  z-index: 1055;
+  text-decoration: none;
+  transition: transform .2s ease, background-color .2s ease, opacity .2s ease;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(8px);
+  pointer-events: none;
+}
+.whatsapp-float.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.whatsapp-float:hover,
+.whatsapp-float:focus {
+  background-color: var(--color-secundario-oscuro);
+  transform: scale(1.08);
+  outline: none;
+}
+
+/* Media Queries */
+@media (max-width: 575.98px) {
+  footer { padding-bottom: 84px; }
+}
+@media (prefers-reduced-motion: reduce) {
+  .whatsapp-float { transition: none; }
+  * { transition: none !important; }
+}
+
+:root {
+  --bs-primary: hsl(169, 75%, 52%);
+  --bs-success: hsl(83, 100%, 40%);
+  --bs-danger: hsl(9, 10%, 29%);
+  --bs-body-bg: hsl(83, 100%, 88%);
+  --bs-body-color: hsl(9, 10%, 29%);
+}
+
+body {
+  font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+  background-color: var(--bs-body-bg);
+  color: var(--bs-body-color);
+}
+
+h1 {
+  color: var(--bs-primary);
+  border-bottom: 3px solid currentColor;
+  display: inline-block;
+  padding-bottom: 5px;
+}
+
+.card img {
+  height: 200px;
+  object-fit: cover;
+}
+
+#btnCarrito {
+  border-radius: 50px;
+  display: flex;
+  align-items: center;
+  gap: 4px;
+}
+
+#contadorCarrito {
+  font-size: 0.75rem;
+}
+
+footer {
+  font-size: 0.9rem;
+}
